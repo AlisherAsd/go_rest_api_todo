@@ -1,12 +1,20 @@
 package handler
 
 import (
+	"alisherAsd/pkg/service"
+
 	"github.com/gin-gonic/gin"
 )
 
 // Структура для обработки запросов
 // Содержит методы для обработки запросов которые определены в auth.go, list.go, item.go
-type Handler struct {}
+type Handler struct {
+	services *service.Service
+}
+
+func NewHandler(services *service.Service) *Handler {
+	return &Handler{services: services}
+}
 
 // Инициализация маршрутов
 // Параметр h *Handler - указатель на структуру Handler
